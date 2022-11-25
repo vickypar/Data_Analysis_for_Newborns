@@ -1,0 +1,1 @@
+Folder that contains variables'analysis was created.
