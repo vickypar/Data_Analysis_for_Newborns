@@ -1,3 +1,4 @@
+# Import necessary libraries
 library(haven)
 library(data.table)
 library(summarytools)
@@ -33,6 +34,7 @@ freq(dataset$smoker)
 freq(dataset$lowbwt)
 freq(dataset$mage35)
 
+# Analyze each feature (create histograms, box plots and qq-plots to check if they follow normal distribution)
 
 ############ Birthweigth ####################
 hist_birthw <- ggplot(dataset, aes(x=Birthweight)) +
@@ -191,7 +193,7 @@ box_gest
 qqnorm(dataset$Gestation, main="Normal Q-Q Plot for Gestation")
 qqline(dataset$Gestation)
 
-
+# create barplot and pie for categorical variables
 ############ Smoker ###########
 bar_smoker <- ggplot(dataset, aes(x=smoker, color = smoker, fill = smoker)) +
   geom_bar( aes(y = (..count..)/sum(..count..)), alpha=0.9) +
@@ -575,9 +577,11 @@ counts <- plyr::count(dataset$mage35)
 pie_mage35 <- pie(counts$freq , labels = counts$x)
 
 ####### Question 1 #####
+# Analyzing the effect of newborns' length and head circumference as well as the duration of gestation in newborns' weight.
 
 pairs(dataset[, c(1,2,3,4)], panel = panel.smooth)
 
+# Create scatterplots between each feature and birthweight.
 ### Length ####
 sc_len <- ggplot(dataset, aes(x=length, y=Birthweight)) + 
   #geom_boxplot(size=2, color = "blue", alpha = 0.7) +
