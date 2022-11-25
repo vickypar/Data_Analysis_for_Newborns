@@ -9,7 +9,7 @@ This project regards analysis of data about newborns using Statistical methods i
 
 [2. Data](https://github.com/vickypar/Data_Analysis_for_Newborns#2-data)
 
-[3. Analysis of Available Variables](https://github.com/vickypar/#3-Data_Analysis_for_Newborns#3-analysis-of-available-variables)
+[3. Analysis of Available Variables](https://github.com/vickypar/Data_Analysis_for_Newborns#3-analysis-of-available-variables)
 
 [4. Question 1](https://github.com/vickypar/Data_Analysis_for_Newborns#4-question-1)
 
