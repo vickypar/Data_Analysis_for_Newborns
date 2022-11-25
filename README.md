@@ -65,6 +65,18 @@ The second research question that we study is whether features that regard both 
 It seems that whether mother is a smoker, mother's height and mother's pre-pregnancy weight have statistically significant effect of newborn's weight (p-value < 0.05).
 On the other hand mother's age, father's age, mother's number of cigarettes, father's number of cigarettes, father's years in education, father's height and whether mother's age is larger than 35 do not have statistically significant effect of newborn's weight (p-value > 0.05). As a result, these variables are not taken into consideration.
 
+However, we cannot omit second order dependencies, since a variable in combination with another may have effect on birthweight. Since there are 13 independent variables, there are 78 second order dependencies. However, since the dataset consists of 84 observations, more than 84/3 = 28 terms will result in a saturated model. So, we create 6 models using different combinations of the aforementioned terms. From each model, we keep only the statistically significant terms in order to create the first attempt of the model. Afterwards, we omit sequentially the non-significant terms to result in the following model, where all terms are significant.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204043990-2a463b0a-bd5c-431e-b2a8-08ad4dab4f40.png" width="600"></p>
+
+The model explains the **76.88%** of the birthweight's variability and it is statistically significant (p-value << 0.01).
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204044317-60cc9394-b301-4fac-9953-47d242b6b912.png" width="600"></p>
+
+
+
+
+
 
 
 
