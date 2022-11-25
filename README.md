@@ -40,7 +40,7 @@ First, we analyze all of the available variables (both numerical and categorical
 
 ![image](https://user-images.githubusercontent.com/95586847/203942426-35d69cb0-7955-47c4-8959-c5db196553bc.png)
 
-After that, for **numerical** variables we plot **histograms**, **boxplots**, and **qq-plots* to observe if they follow normal distribution. The figures are stored in the **results** folder.
+After that, for **numerical** variables we plot **histograms**, **boxplots**, and **qq-plots** to observe if they follow normal distribution. For **categorical** variables we plot **bar charts** and **pie charts**. The figures are stored in the **results** folder.
 
 
 
