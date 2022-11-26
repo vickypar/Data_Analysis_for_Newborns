@@ -674,6 +674,7 @@ anova(model6, model.dim$model)
 #abline(model1)
 
 ############ Question 2 ############
+# We analyze all features' effect (features that regard parents and other newborn's characteristics) on newborn's birthwight
 
 pairs(raw_data[, -c(14)], panel = panel.smooth)
 
@@ -1009,7 +1010,7 @@ summary(model.dim$model)
 anova(model11, model.dim$model)
 
 ######## Question 3 ###########
-
+# The third research question that we study is whether parents' characteristics have effect on the duration of gestation.
 ### check glm ####
 
 f.P<-fitdist(as.numeric(dataset$Gestation),"pois")
