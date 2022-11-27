@@ -63,7 +63,7 @@ The model explains the **68.78%** of the birthweight's variability.
 ## 5. Question 2
 The second research question that we study is whether features that regard both parents and newborns have effect on newborn's birthwight. Thus, we create **scatterplots** between each numerical feature and birthweight and **boxplots** between each categporical feature and birthweight. The figures are stored in the **results** folder.
 It seems that whether mother is a smoker, mother's height and mother's pre-pregnancy weight have statistically significant effect of newborn's weight (p-value < 0.05).
-On the other hand mother's age, father's age, mother's number of cigarettes, father's number of cigarettes, father's years in education, father's height and whether mother's age is larger than 35 do not have statistically significant effect of newborn's weight (p-value > 0.05). As a result, these variables are not taken into consideration.
+On the other hand, mother's age, father's age, mother's number of cigarettes, father's number of cigarettes, father's years in education, father's height and whether mother's age is larger than 35 do not have statistically significant effect on newborn's weight (p-value > 0.05). As a result, these variables are not taken into consideration.
 
 However, we cannot omit second order dependencies, since a variable in combination with another may have effect on birthweight. Since there are 13 independent variables, there are 78 second order dependencies. However, since the dataset consists of 84 observations, more than 84/3 = 28 terms will result in a saturated model. So, we create 6 models using different combinations of the aforementioned terms. From each model, we keep only the statistically significant terms in order to create the first attempt of the model. Afterwards, we omit sequentially the non-significant terms to result in the following model, where all terms are significant.
 
@@ -73,9 +73,45 @@ The model explains the **76.88%** of the birthweight's variability and it is sta
 
 <p align="center"><img src="https://user-images.githubusercontent.com/95586847/204044317-60cc9394-b301-4fac-9953-47d242b6b912.png" width="600"></p>
 
+## 6. Question 3
+The third research question that we study is whether parents' characteristics have effect on the duration of gestation. Since gestation is a discrete variable that takes only positive values, we study whether it follows Poisson distribution or negative binomial in order to use **generalized linear models (glm)**. 
 
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204088656-d045e62c-3451-41f5-ae75-7f9e973f37a0.png" width="550"></p>
 
+We observe that it is significantly different from both distributions (p-value << 0.01). Thus, we create a new binary variable that show is the baby was born prematurely (duration of gestation less than 37 weeks) or not. We create the **barplot** and the **pie chart** of the newly created variable. 
 
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204089504-0c8428ed-ca9b-4413-b5da-94e5a97211c6.png" width="550"></p>
+
+As expected, about 11% of babies were born prematurely. In order to analyze the effect of independent variables, we calculate their average value (for numerical) for each one of the available categories of the dependent variable.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204094382-2c13b490-46b3-4243-95f5-1f1e2a45610d.png" width="450"></p>
+
+It seems that variables "mppwt" and "fnocig" have effect on the duration of gestation. For the categorical variables, we plot how they are distributed across the categories.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204094826-e4085755-df85-4830-823d-8b214fb64bc5.png" width="350"></p>
+
+Next, we create **barplots** between each categporical feature and gestation and **boxplots** between each numerical feature and gestation. The figures are stored in the **results** folder.
+
+It seems that only father's number of cigarettes has statistically significant effect on the duration of gestation (p-value < 0.05).
+On the other hand, whether mother is a smoker, mother's height, mother's pre-pregnancy weight, mother's age, father's age, mother's number of cigarettes,  father's years in education, father's height and whether mother's age is larger than 35 do not have statistically significant effect on the duration of gestation (p-value > 0.05). As a result, these variables are not taken into consideration and we create a simple model using only father's number of cigarettes.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204097443-c510eb6f-8d94-4d23-addd-670a2280724b.png" width="550"></p>
+
+However, it is not able to describe the data sufficiently.
+
+Consequently, we use generalized additive models to discover any complex dependencies (quadratic, logarithmic, etc.). The figures are stored in the **results** folder. After doing the appropriate transformations, we create a first draft of the model along with the second order dependencies.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204098257-858caf58-7031-42d9-b11c-a0458110d6e4.png" width="550"></p>
+
+We observe that it predicts 50% of the premature births. After omitting non-significant terms, we end up in the following model.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204098477-d915acfb-48e7-4d8d-9dcf-4791e7fd350a.png" width="550"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/95586847/204098507-cd900de8-2310-40be-8cd7-a6aac7e1bf22.png" width="550"></p>
+
+The final model is slightly better than the first one regarding residuals, but it still predicts 50% of the premature births. It also includes some leverage points (11, 48, 74, 84) which belong to the positive class. So if we remove them, we will create a worse model.
+
+Consequently, the available data are not sufficient to predict the duration of the gestation.
 
 
 
